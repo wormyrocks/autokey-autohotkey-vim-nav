@@ -12,6 +12,8 @@ SetCapsLockState, AlwaysOff
 
 Suspend On
 
+KeyTriggered := False
+
 ; avoid bad state of CAPS pressed when not down
 GetKeyState, state, CapsLock
 if state = D
@@ -24,6 +26,7 @@ if state = D
 ;; modifier into alt_mode
 space::
 {
+  KeyTriggered := True
   if (alt_mode) {
     alt_mode := false
   } else {
@@ -40,6 +43,7 @@ return
 ;; modifier into alt_mode2
 tab::
 {
+KeyTriggered := True
   if (alt_mode2) {
     alt_mode2 := false
   } else {
@@ -55,26 +59,31 @@ return
 
 -::
 {
+  KeyTriggered := True
     SendInput {End}
     return
 }
 )::
 {
+  KeyTriggered := True
     SendInput +{Home}
     return
 }
 _::
 {
+  KeyTriggered := True
     SendInput +{End}
     return
 }
 0::
 {
+  KeyTriggered := True
     SendInput {Home}
     return
 }  
 +1::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(17,"1")     
       return
@@ -86,6 +95,7 @@ _::
 }
 1::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(17)     
       return
@@ -97,6 +107,7 @@ _::
 }
 +2::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(18,"2")      
       return
@@ -108,6 +119,7 @@ _::
 }
 2::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(18)      
       return
@@ -119,6 +131,7 @@ _::
 }
 +3::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(19,"3")      
       return
@@ -130,6 +143,7 @@ _::
 }
 3::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(19)      
       return
@@ -141,6 +155,7 @@ _::
 }
 +4::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(20,"4")      
       return
@@ -152,6 +167,7 @@ _::
 }
 4::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(20)      
       return
@@ -163,6 +179,7 @@ _::
 }
 +5::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(21,"5")      
       return
@@ -174,6 +191,7 @@ _::
 }
 5::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(21)      
       return
@@ -185,6 +203,7 @@ _::
 }
 a::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(1)      
       return
@@ -202,6 +221,7 @@ a::
 }
 +a::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(1,"a")          
       return
@@ -213,6 +233,7 @@ a::
 }
 b::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(16)      
       return
@@ -226,6 +247,7 @@ b::
 }
 +b::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(16,"b")      
       return
@@ -237,6 +259,7 @@ b::
 }
 +c::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(7,"c")      
       return
@@ -248,6 +271,7 @@ b::
 }
 c::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(7)      
       return
@@ -259,6 +283,7 @@ c::
 }
 d::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(3)      
       return
@@ -272,6 +297,7 @@ d::
 }
 +d::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(3,"d")      
       return
@@ -285,6 +311,7 @@ d::
 }
 e::
 {
+  KeyTriggered := True
     if (alt_mode) {
       SendEvent {LWin down}{Right down}{LWin up}{Right up}      
       return
@@ -294,6 +321,7 @@ e::
 }
 f::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(4)      
       return
@@ -307,6 +335,7 @@ f::
 }
 +f::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(4,"f")      
       return
@@ -318,6 +347,7 @@ f::
 }
 g::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(15)      
       return
@@ -331,6 +361,7 @@ g::
 }
 +g::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(15,"g")      
       return
@@ -344,56 +375,67 @@ g::
 }
 h::
 {
+  KeyTriggered := True
     SendInput {Left}
     return
 }
 +h::
 {
+  KeyTriggered := True
     SendInput +{Left}
     return
 }
 i::
 {
+  KeyTriggered := True
     SendInput {Up}{Up}{Up}{Up}{Up}
     return
 }
 +i::
 {
+  KeyTriggered := True
     SendInput +{Up}+{Up}+{Up}+{Up}+{Up}
     return
 }
 j::
 {
+  KeyTriggered := True
     SendInput {Down}
     return
 }
 +j::
 {
+  KeyTriggered := True
     SendInput +{Down}
     return
 }
 k::
 {
+  KeyTriggered := True
     SendInput {Up}
     return
 }
 +k::
 {
+  KeyTriggered := True
     SendInput +{Up}
     return
 }
 l::
 {
+  KeyTriggered := True
     SendInput {Right}
     return
 }
 +l::
 {
+  KeyTriggered := True
     SendInput +{Right}
     return
 }
 q::
 {
+  KeyTriggered := True
     if (alt_mode) {
       SendEvent {LWin down}{Left down}{LWin up}{Left up}      
       return
@@ -403,11 +445,13 @@ q::
 }
 +q::
 {
+  KeyTriggered := True
     SendInput +^{Left}
     return
 }
 r::
 {
+  KeyTriggered := True
     if (alt_mode) {
       ;; Windows snapping to sides and maximizing
       ;; Make sure to turn off "show what I can snap next to it" in Windows' "multitasking settings"
@@ -431,6 +475,7 @@ r::
 }
 s::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(2)      
       return
@@ -448,6 +493,7 @@ s::
 }
 +s::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(2,"s")      
       return
@@ -459,6 +505,7 @@ s::
 }
 t::
 {
+  KeyTriggered := True
     if (alt_mode) {
       if toggle_taskbar := !toggle_taskbar {
          WinHide ahk_class Shell_TrayWnd
@@ -471,16 +518,19 @@ t::
 }
 u::
 {
+  KeyTriggered := True
     SendInput {down}{down}{down}{down}{down}
     return
 }
 +u::
 {
+  KeyTriggered := True
     SendInput +{down}+{down}+{down}+{down}+{down}
     return
 }
 +v::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(8,"v")      
       return
@@ -493,6 +543,7 @@ u::
 }    
 v::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(8)      
       return
@@ -504,6 +555,7 @@ v::
 }
 w::
 {
+  KeyTriggered := True
     if (alt_mode) {
       WinMaximize, A      
       return
@@ -513,11 +565,13 @@ w::
 }
 +w::
 {
+  KeyTriggered := True
     SendInput +^{Right}
     return
 }
 x::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(6)      
       return
@@ -531,6 +585,7 @@ x::
 }
 +x::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(6,"x")      
       return
@@ -544,6 +599,7 @@ x::
 }
 y::
 {
+  KeyTriggered := True
     if (alt_mode) {
       app_mem_info()      
       return
@@ -553,6 +609,7 @@ y::
 }
 z::
 {
+  KeyTriggered := True
     if (alt_mode) {
       restore(5)      
       return
@@ -566,6 +623,7 @@ z::
 }
 +z::
 {
+  KeyTriggered := True
     if (alt_mode) {
       memorize(5,"z")      
       return
@@ -578,5 +636,21 @@ z::
     return
 }
 
-CapsLock::Suspend Off
-~*CapsLock Up::Suspend On
+Esc::
+{
+  KeyTriggered := True
+  return
+}
+
+CapsLock::
+Suspend Off
+KeyTriggered := False
+return
+
+~*CapsLock Up::
+Suspend Off
+if (KeyTriggered == False){
+  Send {Del}
+}
+Suspend On
+return
